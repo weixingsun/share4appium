@@ -32,7 +32,7 @@ describe("android install xshare latest version", function () {
     return driver
       .init(desired)
       .setImplicitWaitTimeout(10000)
-	  .sleep(5000);
+      .sleep(10000);
   });
 
   //after(function () {
@@ -49,21 +49,23 @@ describe("android install xshare latest version", function () {
     allPassed = allPassed && this.currentTest.state === 'passed';
   });
 
-  it("check my messages", function () {
+  it("check main tabs", function () {
     return driver
-      .elementByAccessibilityId('notify_list:more')
+      .elementByName('TabCfg').should.eventually.exist  //elementByAccessibilityId()==elementByName()
       .click()
-      .elementByAccessibilityId('notify_list:more:my')
-        .should.eventually.exist
-      .back()
-      .elementByAccessibilityId('main_icon_settings')
+      .sleep(1000)
+      .elementByName('TabUser').should.eventually.exist
       .click()
-      .elementByAccessibilityId('settings_list:push_listener')
+      .sleep(1000)
+      .elementByName('TabMap')
       .click()
-      .elementByAccessibilityId('settings_list:push_listener')
-	    .should.eventually.exist
-	  .elementByAccessibilityId('settings_list:push_listener_list#1')
-	    .should.eventually.exist
+      //.back()
+      //.elementByAccessibilityId('settings_list:push_listener')
+      //.click()
+      //.elementByAccessibilityId('settings_list:push_listener')
+      //  .should.eventually.exist
+	  //.elementByAccessibilityId('settings_list:push_listener_list#1')
+	  //  .should.eventually.exist
       //  .should.exists; .should.eventually.exist; .should.eventually.have.length(12); .should.eventually.have.length.above(20);
   });
 });
