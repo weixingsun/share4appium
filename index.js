@@ -54,11 +54,27 @@ describe("android install xshare latest version", function () {
       .elementByName('TabCfg').should.eventually.exist  //elementByAccessibilityId()==elementByName()
       .click()
       .sleep(1000)
+      .elementByName('TabMap')
+      .click()
+      .sleep(1000)
       .elementByName('TabUser').should.eventually.exist
       .click()
       .sleep(1000)
-      .elementByName('TabMap')
+      .elementByName('MyListMore').should.eventually.exist
       .click()
+      .sleep(1000)
+      .elementByName('MenuCreateShare').should.eventually.exist
+      .click()
+      .sleep(1000)
+      .elementByName('FormInfoTitle').should.eventually.exist
+      .click()
+      .sleep(1000)
+      .sendKeys('title1')
+      .elementByName('FormInfoPhone').should.eventually.exist
+      .click()
+      .click()
+      .sleep(1000)
+      .sendKeys('title1')
       //.back()
       //.elementByAccessibilityId('settings_list:push_listener')
       //.click()
